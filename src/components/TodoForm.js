@@ -8,10 +8,10 @@ function TodoForm({ addTodo }) {
     if (!value.trim()) return; 
     addTodo(value);
     setValue(''); 
-  };
+  }; 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='input-add' onSubmit={handleSubmit}>
       <input
         type="text"
         className="todo-input"

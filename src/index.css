@@ -191,3 +191,49 @@ form {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
+/* RESPONSIVE STYLES        */
+@media (max-width: 600px) {
+  body {
+    padding-top: 20px; 
+    width: 100%;
+  
+  }
+
+  .todo-app {
+    padding: 20px; 
+    margin: 0 10px; 
+    width: 100vw;
+  }
+
+  h1 {
+    font-size: 24px; 
+  }
+  
+  .filter-buttons {
+    flex-direction: column;
+    gap: 8px; 
+    align-items: center;
+  }
+  .input-add{
+    margin-left: 10px;
+  }
+  .filter-buttons button {
+    width: 80%;
+  }
+   .list-heading{
+    margin-left: 10px;
+  }
+
+  .todo-item {
+    padding: 12px 5px; 
+  }
+
+  .delete-button {
+    opacity: 1;
+    background-color: transparent;
+    color: #ff4757;
+    font-weight: bold;
+  }
+}
