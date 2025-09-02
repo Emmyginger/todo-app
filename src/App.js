@@ -75,7 +75,7 @@ function App() {
       
       <FilterButtons setFilter={setFilter} clearAllTodos={clearAllTodos} />
       
-      <h2 className="list-heading">{tasksRemaining} tasks remaining</h2>
+      <h2 className="list-heading">{tasksRemaining} Task(s) remaining</h2>
       
       <TodoList
         todos={filteredTodos}
