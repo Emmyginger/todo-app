@@ -1,13 +1,239 @@
+/* General Body Styles */
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+  min-height: 100vh;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Main App Container */
+.todo-app {
+  background: #fff;
+  width: 100%;
+  max-width: 550px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Form and Input Styles */
+form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.todo-input {
+  flex-grow: 1;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.todo-input:focus {
+  border-color: #7b68ee;
+}
+
+.add-button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #7b68ee; /* MediumSlateBlue */
+  color: white;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #6a5acd; /* Darker SlateBlue */
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-buttons button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.filter-buttons button:hover {
+  background-color: #e9e9e9;
+}
+
+.filter-buttons button:focus {
+  outline: 2px solid #7b68ee;
+  outline-offset: 2px;
+}
+
+.clear-button {
+  background-color: #ff6b6b !important;
+  color: white;
+  border-color: #ff6b6b !important;
+}
+
+.clear-button:hover {
+  background-color: #ff4757 !important;
+}
+
+/* Todo List Heading */
+.list-heading {
+  text-align: left;
+  font-size: 18px;
+  color: #555;
+  margin-top: 25px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+/* Todo List and Items */
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-item:hover {
+  background-color: #f9f9f9;
+}
+
+.todo-text {
+  flex-grow: 1;
+  text-align: left;
+  margin-left: 15px;
+  font-size: 16px;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.delete-button {
+  background-color: #ff4757;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0; /* Hide by default */
+  transition: opacity 0.3s;
+}
+
+.todo-item:hover .delete-button {
+  opacity: 1; /* Show on hover */
+}
+
+/* Custom Checkbox */
+.todo-item input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.todo-item input[type="checkbox"]:checked {
+  background-color: #7b68ee;
+  border-color: #7b68ee;
+}
+
+.todo-item input[type="checkbox"]:checked::after {
+  content: '✔';
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* RESPONSIVE STYLES        */
+@media (max-width: 600px) {
+  body {
+    padding-top: 20px; 
+    width: 100%;
+  
+  }
+
+  .todo-app {
+    padding: 20px; 
+    margin: 0 10px; 
+    width: 100vw;
+  }
+
+  h1 {
+    font-size: 24px; 
+  }
+  
+  .filter-buttons {
+    flex-direction: column;
+    gap: 8px; 
+    align-items: center;
+  }
+  .input-add{
+    margin-left: 10px;
+  }
+  .filter-buttons button {
+    width: 80%;
+  }
+   .list-heading{
+    margin-left: 10px;
+  }
+
+  .todo-item {
+    padding: 12px 5px; 
+  }
+
+  .delete-button {
+    opacity: 1;
+    background-color: transparent;
+    color: #ff4757;
+    font-weight: bold;
+  }
 }
