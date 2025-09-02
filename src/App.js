@@ -68,7 +68,7 @@ function App() {
 
   return (
     <div className="todo-app">
-      <h1>Todo List ✔️</h1>
+      <h1>To-do Pal ✔️</h1>
       <p>What needs to be done?</p>
       
       <TodoForm addTodo={addTodo} />
